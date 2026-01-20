@@ -1,0 +1,110 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-01-20T17:45:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_dncommerce",
+      "_type": "workspace",
+      "name": "DNCommerce API",
+      "description": "Colecao para teste da API DNCommerce"
+    },
+    {
+      "_id": "env_dncommerce",
+      "_type": "environment",
+      "parentId": "wrk_dncommerce",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3001",
+        "produtoId": "",
+        "clienteId": "",
+        "pedidoId": ""
+      }
+    },
+    {
+      "_id": "req_health",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Health",
+      "method": "GET",
+      "url": "{{ base_url }}/health"
+    },
+    {
+      "_id": "req_produtos_post",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Criar Produto",
+      "method": "POST",
+      "url": "{{ base_url }}/produtos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"nome\":\"Hidratante Facial\",\"descricao\":\"Uso diario\",\"preco\":59.9,\"categoria\":\"Skincare\",\"sku\":\"SKIN-001\"}"
+      }
+    },
+    {
+      "_id": "req_produtos_get",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Listar Produtos",
+      "method": "GET",
+      "url": "{{ base_url }}/produtos"
+    },
+    {
+      "_id": "req_clientes_post",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Criar Cliente",
+      "method": "POST",
+      "url": "{{ base_url }}/clientes",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"nome\":\"Maria Souza\",\"email\":\"maria@email.com\",\"telefone\":\"11999999999\",\"endereco\":{\"rua\":\"Rua A\",\"numero\":\"100\",\"cidade\":\"Sao Paulo\",\"estado\":\"SP\",\"cep\":\"01000-000\"}}"
+      }
+    },
+    {
+      "_id": "req_clientes_get",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Listar Clientes",
+      "method": "GET",
+      "url": "{{ base_url }}/clientes"
+    },
+    {
+      "_id": "req_estoque_post",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Criar/Atualizar Estoque",
+      "method": "POST",
+      "url": "{{ base_url }}/estoque",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"produtoId\":\"{{ produtoId }}\",\"quantidade\":10,\"localizacao\":\"Galpao A\"}"
+      }
+    },
+    {
+      "_id": "req_pedidos_post",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Criar Pedido",
+      "method": "POST",
+      "url": "{{ base_url }}/pedidos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"clienteId\":\"{{ clienteId }}\",\"itens\":[{\"produtoId\":\"{{ produtoId }}\",\"quantidade\":2}]}"
+      }
+    },
+    {
+      "_id": "req_vendas_post",
+      "_type": "request",
+      "parentId": "wrk_dncommerce",
+      "name": "Criar Venda",
+      "method": "POST",
+      "url": "{{ base_url }}/vendas",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"clienteId\":\"{{ clienteId }}\",\"pedidoId\":\"{{ pedidoId }}\",\"forma_pagamento\":\"cartao\",\"itens\":[{\"produtoId\":\"{{ produtoId }}\",\"quantidade\":1}]}"
+      }
+    }
+  ]
+}

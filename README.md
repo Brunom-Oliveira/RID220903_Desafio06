@@ -2,6 +2,11 @@
 
 API REST para cadastro de produtos e registro de vendas com MongoDB.
 
+## Autor
+
+Bruno Mateus de Oliveira - RID 220903
+
+
 ## Como rodar
 
 1. Copie `.env.example` para `.env` e ajuste a `MONGO_URL`.
